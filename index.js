@@ -32,6 +32,32 @@ const changeElements = (button, selector, css) => {
         });
     })
 }
+const hoverElements = (button, data, css) => {
+    const btnFood = document.querySelector(button);
+    const selector = data.prefix;
+    console.log(data);
+    btnFood.classList.add('full-sensitive');
+    const id = data.id ? ` > :not(#${data.id})` : ''
+    let elements = [];
+    if(data.id){
+        elements = document.querySelectorAll(`svg #map > :not(#LABELS):not([id^="${selector.replace(/_$/, '')}"]) ${id}, svg #map > #LABELS > :not([id^="${selector.replace(/_$/, '')}"]) ${id}`);
+    } else {
+        elements = document.querySelectorAll(`svg #map > :not(#LABELS):not([id^="${selector.replace(/_$/, '')}"]), svg #map > #LABELS > :not([id^="${selector.replace(/_$/, '')}"])`);
+    }
+    // const elements = document.querySelectorAll(`svg #map :not([id^="${selector.replace(/_$/, '')}"]) :not([id^="${selector}"])`);
+    // btnFood.addEventListener('click', () => {
+    btnFood.addEventListener('mouseover', () => {
+        elements.forEach(element => {
+            element.classList.add('not-highlight')
+        });
+    })
+    btnFood.addEventListener('mouseout', () => {
+        elements.forEach(element => {
+            element.classList.remove('not-highlight')
+        });
+    })
+
+}
 const showElements = (button, selector) => {
     changeElements(button, selector, 'hidden');
 }
@@ -40,7 +66,18 @@ const focusElements = (button, selector) => {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    showElements('#LEGEND_25', 'FOOD_');
-    focusElements('#LEGEND_1', 'MEETING_');
-    focusElements('#LEGEND_2', 'RESTAURANT_');
+
+    fetch('./data.json')
+    .then(response => response.json())
+    .then(json => {
+        const data = json['LEGEND'];
+        const keys = Object.keys(json['LEGEND'])
+       keys.forEach(key => {
+            hoverElements(`#${key}`, data[key], `.highlight`)
+        });
+    });
+    // showElements('#LEGEND_25', 'FOOD_');
+    // // hoverElements('#LEGEND_25', 'FOOD_', `.highlight`)
+    // focusElements('#LEGEND_1', 'MEETING_');
+    // focusElements('#LEGEND_2', 'RESTAURANT_');
 });

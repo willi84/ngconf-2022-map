@@ -7,3 +7,12 @@
 [id^=LEGEND_]{
     cursor: pointer;
 }
+.highlight{
+    opacity: 1;
+}
+.not-highlight{
+    opacity: 0.2;
+}
+.full-sensitive{
+    pointer-events: bounding-box;
+}

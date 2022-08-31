@@ -1,0 +1,18 @@
+{
+    "LEGEND": {
+        "LEGEND_1": { "prefix": "MEETING_" },
+        "LEGEND_2": { "prefix": "RESTAURANT_" },
+        "LEGEND_3": { "prefix": "SPORT_" },
+        "LEGEND_4": { "prefix": "STORE_" },
+        "LEGEND_5": { "prefix": "PHONE_" },
+        "LEGEND_6": { "prefix": "TOILET_" },
+        "LEGEND_7": { "prefix": "GARDEN" },
+        "LEGEND_8": { "prefix": "ELEVATOR_" },
+        "LEGEND_9": { "prefix": "OFFICE_" },
+        "LEGEND_24": { "prefix": "STAGE_" },
+        "LEGEND_25": { "prefix": "FOOD_" },
+        "LEGEND_26": { "prefix": "ORGA_", "id": "ORGA_1" },
+        "LEGEND_27": { "prefix": "ORGA_", "id": "ORGA_2" },
+        "LEGEND_28": { "prefix": "ORGA_", "id": "ORGA_3" }
+    }
+}
