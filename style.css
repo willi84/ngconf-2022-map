@@ -1,0 +1,9 @@
+.hidden{
+    opacity: 0;
+}
+.not-active{
+    opacity: 0.7;
+}
+[id^=LEGEND_]{
+    cursor: pointer;
+}
