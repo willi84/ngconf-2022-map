@@ -76,6 +76,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
             hoverElements(`#${key}`, data[key], `.highlight`)
         });
     });
+    const svg = document.querySelector('svg');
+    document.querySelector('#LEGEND_37').addEventListener('click', () => {
+        console.log('clicked')
+        hoverElements(`#LEGEND_37`,{ prefix: 'SPONSOR_'} , `.highlight`);
+        if(!svg.getAttribute('orig-width')){
+            svg.setAttribute('orig-width', svg.getAttribute('width'));
+        }
+        if(!svg.getAttribute('orig-height')){
+            svg.setAttribute('orig-height', svg.getAttribute('height'));
+        }
+        svg.setAttribute('width',parseInt(svg.getAttribute('orig-width'), 10)*5 )
+        svg.setAttribute('height',parseInt(svg.getAttribute('orig-height'), 10)*5 )
+        const room = document.querySelector('#MEETING_9');
+        const pos = room.getBBox();
+        window.scroll(pos.x*5 - 10*5, pos.y*5 - 10*5)
+        console.log(room.getBBox())
+    });
     // showElements('#LEGEND_25', 'FOOD_');
     // // hoverElements('#LEGEND_25', 'FOOD_', `.highlight`)
     // focusElements('#LEGEND_1', 'MEETING_');
